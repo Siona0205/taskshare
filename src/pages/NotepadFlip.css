@@ -1,0 +1,20 @@
+.notepad-flip {
+  animation: notepadFlipUp 0.6s cubic-bezier(.77,0,.18,1) both;
+}
+@keyframes notepadFlipUp {
+  0% {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
+    z-index: 1;
+  }
+  60% {
+    transform: rotateX(-60deg) scale(1.04);
+    opacity: 0.7;
+    z-index: 1;
+  }
+  100% {
+    transform: rotateX(-90deg) scale(1.08);
+    opacity: 0;
+    z-index: 0;
+  }
+}
