@@ -100,33 +100,9 @@ const MyTasks = () => {
     }
   };
 
-  // Share task
-  const shareTask = async (id, email) => {
-    try {
-      const res = await fetch(`/api/tasks/share/${id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ email })
-      });
-      if (!res.ok) {
-        const errData = await res.json();
-        throw new Error(errData.message || 'Failed to share task');
-      }
-      alert('Task shared successfully!');
-    } catch (err) {
-      alert(err.message);
-    }
-  };
-
-  // Prompt for email and share
+  // Share task: navigate to ShareTask page
   const handleShare = (id) => {
-    const email = window.prompt('Enter the email of the user to share with:');
-    if (email) {
-      shareTask(id, email);
-    }
+    navigate(`/share?taskId=${id}`);
   };
 
   return (
